@@ -29,10 +29,15 @@ gulp.task('sass', function() {
         .pipe($.size());
 });
 
-// canny bower vendor inject
-
-
-
+// canny watch
+gulp.task('watch', ['styles'], function() {
+    browserSync({
+        proxy: "http://canny.api.dev/",
+        notify: false,
+        logPrefix: 'BS',
+    });
+    gulp.watch(['src/**/*'], ['styles', reload]);
+});
 
 
 // ////////////////////////////////
