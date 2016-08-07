@@ -17,7 +17,7 @@ var inject = require('gulp-inject');
 // canny styles
 gulp.task('styles', ['sass', 'css']);
 gulp.task('css', function(){
-    gulp.src(['src/styles/**/*.css'])
+    gulp.src('src/styles/**/*.css')
     .pipe(gulp.dest('dist/styles'));
 });
 gulp.task('sass', function() {
@@ -29,16 +29,41 @@ gulp.task('sass', function() {
         .pipe($.size());
 });
 
+// canny scripts
+gulp.task('scripts', function() {
+    gulp.src(['src/scripts/**/*'])
+    .pipe(gulp.dest('dist/scripts'));
+});
+
+// canny other assets
+gulp.task('assets', function() {
+    gulp.src(['src/fonts/**/*','src/images/**/*'], {base: 'src'})
+    .pipe(gulp.dest('dist/'));
+});
+
+// canny's single view
+gulp.task('views', function() {
+    gulp.src('index.blade.php')
+    .pipe(gulp.dest('dist/'));
+});
+
+// canny scripts
+gulp.task('all', ['styles', 'scripts', 'assets', 'views']);
+
 // canny watch
-gulp.task('watch', ['styles'], function() {
+gulp.task('watch', ['all'], function() {
     browserSync({
         proxy: "http://canny.api.dev/",
         notify: false,
         logPrefix: 'BS',
     });
-    gulp.watch(['src/**/*'], ['styles', reload]);
+    gulp.watch(['src/**/*'], ['all', reload]);
 });
 
+// canny clean
+gulp.task('clean', function(cb) {
+    del.sync(['dist']);
+});
 
 // ////////////////////////////////
 // //          NEW SLIM          //

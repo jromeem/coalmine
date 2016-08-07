@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/canny', function () {
+    return view('index');
+});
+
 Route::group(array('prefix'=>'api/v1'), function () {
     Route::resource('test','TestController');   
 });
