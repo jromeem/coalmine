@@ -12,10 +12,6 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/canny', function () {
     return view('index');
 });
 
