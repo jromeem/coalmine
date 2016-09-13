@@ -116,16 +116,16 @@
                 <div class="pull-right social-contain">
                     <ul class="social">
                         <li>
-                            <a class="fa fa-twitter social-icon" href="#"></a>
+                            <a class="fa fa-twitter social-icon" target="_blank" href="#"></a>
                         </li>
                         <li>
-                            <a class="fa fa-facebook social-icon" href="#"></a>
+                            <a class="fa fa-facebook social-icon" target="_blank" href="https://www.facebook.com/CannyMe"></a>
                         </li>
                         <li>
-                            <a class="fa fa-instagram social-icon" href="#"></a>
+                            <a class="fa fa-instagram social-icon" target="_blank" href="#"></a>
                         </li>
                         <li>
-                            <a class="fa fa-envelope social-icon" href="#"></a>
+                            <a class="fa fa-envelope social-icon" target="_blank" href="#"></a>
                         </li>
                     </ul>
                 </div>
